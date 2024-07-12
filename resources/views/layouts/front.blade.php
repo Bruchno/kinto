@@ -12,8 +12,14 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.17/dist/fancybox/fancybox.css"
+      />
 
   <title> Kinto -  </title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -29,6 +35,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="css/my_css.css" rel="stylesheet" />
 
 </head>
 
@@ -36,197 +43,58 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="{{ asset('storage/source/'. $main_foto->header) }}" alt=""  style="max-height: 1080px;overflow:hidden;width:100%;">
     </div>
     <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Kinto
-            </span>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="{{ route('home') }}" class="logo">
+      <span>
+        <img src="{{ asset('storage/source/'. $logo->header) }}" alt="" height="40">
+      </span>
+    </a>
+  <div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="main-menu" id="main-menu">
+      <li class="menu-item">
+        <a href="#main_section" class="my-link active">
+          Головна <span class="sr-only">(current)
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="#food_section" class="my-link">Меню</a>
+      </li>
+      <li class="menu-item">
+        <a href="#about_section" class="my-link">Про&nbsp;нас</a>
+      </li>
+      <li class="menu-item">
+        <a href="#book_section" class="my-link">Контакти</a>
+      </li>
+      <li class="menu-item">
+        <div class="user_option">
+          <a href="" class="order_online" data-toggle="modal" data-target="#exampleModal">
+            Забронювати
           </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#food_section">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about_section">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#book_section">Contacts</a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a class="cart_link" href="#">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="" class="order_online">
-                Order Online
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="container">
-          <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-          </ol>
-        </div>
-      </div>
-
-    </section>
-    <!-- end slider section -->
+      </li>
+    </ul>
   </div>
+    <button class="btn-menu" id="btn-menu" type="button">
+      <span class="lines"></span>
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </button>
+  </div>
+</header>
 
-  <!-- offer section -->
+    <!-- end header section -->
+
 
     @yield('content')
   <!-- end offer section -->
 
 
-  
+
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -235,19 +103,19 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              Наші контакти
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Адреса
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Тел +380 44 264 73 50
                 </span>
               </a>
               <a href="">
@@ -261,13 +129,13 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
-            </a>
+            <h4>
+              Ласкаво просимо
+            </h4>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Для того, щоб скласти хоча б «базове» враження про нашу кухню, варто спробувати: шашлик, пару видів хачапурі, хінкалі, імеретинський сир та чихіртму. З насолод зазвичай рекомендуємо чурчхеллу.
             </p>
-            <div class="footer_social">
+            <!-- <div class="footer_social">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
@@ -283,27 +151,27 @@
               <a href="">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            Запрошуємо
           </h4>
           <p>
-            Everyday
+            Щодня
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            з 10.00 до 24.00
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Kinto</a><br><br>
-          &copy; <span id="displayYear"></span> Powered By
-          <a href="https://r.com/" target="_blank">R</a>
+          <!-- &copy; <span id="displayYear"></span> Завжди раді вітати
+          <a href="https://html.design/">Kinto</a><br><br> -->
+          &copy; <span id="displayYear"></span> Сайт розроблено компанією
+          <a href="https://romanow.com.ua/" target="_blank" style="text-decoration: underline;">Romanow web studio</a>
         </p>
       </div>
     </div>
@@ -330,7 +198,87 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+  <script type="text/javascript" src="/js/quickbox.js"></script>
 
 </body>
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Замовлення</h5>
+        <button type="button" data-dismiss="modal" aria-label="Закрыть">X</button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="order_form2" method="post">
+          @csrf
+          <div>
+            <input type="text" name="name" class="form-control" placeholder="Ім'я" />
+          </div>
+          <p></p>
+          <div>
+            <input type="text" name="phone" class="form-control" placeholder="Телефон" required/>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" id="order_send2" class="btn btn-warning" data-dismiss="modal">Замовити</button>
+
+        </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+window.onload = function() {
+  const send = document.querySelector("#order_send");
+  const send2 = document.querySelector("#order_send2");
+  send.addEventListener("click", send_order);
+  send2.addEventListener("click", send_order2);
+
+  function send_order(evt) {
+      evt.preventDefault();
+      var form = document.getElementById("order_form");
+      sendForm(form);
+    }
+  function send_order2(evt) {
+      evt.preventDefault();
+      var form = document.getElementById("order_form2");
+      sendForm(form);
+    }
+  function sendForm(form){
+    const formData = new FormData(form);
+    const response = fetch("{{ route('save_order') }}", {
+      method: "POST",
+      body: formData,
+    })
+    .then(response => {
+      let ip_address = response.text();
+      const promise1 = Promise.resolve(ip_address);
+      console.log(promise1);
+      promise1.then((value) => {
+          var head = document.querySelector("#order_send");
+          if(value == 1) {
+            alert('Готово!!')
+          } else {
+            alert('Вибачте, сталася помилка');
+          }
+      });
+    })
+    .catch((data, status) => {
+      console.log('Request failed');
+    });
+  }
+};
+
+var $page = $('html, body');
+$('a[href*="#"]').click(function() {
+    $page.animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 200);
+    return false;
+});
+</script>
 
 </html>

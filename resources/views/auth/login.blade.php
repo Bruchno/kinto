@@ -7,44 +7,46 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+<div class="card col-lg-6">
+  <div class="card-body">
+<h6></h6><br>
+    <!-- Horizontal Form -->
+    <form method="POST" action="{{ route('login') }}">
+      @csrf
+      <div class="row mb-3">
+        <label for="inputEmail" class="col-sm-4 col-form-label">{{ __('Email') }}</label>
+        <div class="col-sm-8">
+          <input type="email" name="email" class="form-control"  autocomplete="new-email"
+          id="inputEmail" value="{{ old('email') }}" required autofocus >
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="password" class="col-sm-4 col-form-label">{{ __('Password') }}</label>
+        <div class="col-sm-8">
+          <input type="password" name="password" class="form-control"
+          id="password" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-4 col-sm-8">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+            <label class="form-check-label" for="exampleCheck2">{{ __('Remember me') }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">{{ __('Log in') }}</button>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+          @if (Route::has('password.request'))
+              <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                  {{ __('Forgot your password?') }}
+              </a>
+          @endif
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+      </div>
+    </form><!-- End Horizontal Form -->
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
+  </div>
+</div>
 @endsection

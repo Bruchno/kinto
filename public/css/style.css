@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Monserrat", sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
   overflow-x: hidden;
@@ -30,9 +34,15 @@ body {
   padding-bottom: 90px;
 }
 
+@font-face {
+  font-family: 'Monserrat';
+  src: url(/fonts/montserrat/Montserrat-VariableFont_wght.ttf) format('ttf');
+  font-weight: 400;
+}
+
 h1,
 h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: Monserrat, serif;/*'Dancing Script', cursive;*/
 }
 
 .heading_container {
@@ -339,6 +349,8 @@ a:focus {
 .slider_section .detail-box {
   color: #ffffff;
   margin-bottom: 145px;
+  position: relative;
+  top: 150px;
 }
 
 .slider_section .detail-box h1 {
@@ -1005,3 +1017,51 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.carousel-item {
+min-height: 500px; /* Встановіть мінімальну висоту, яка підходить для вашого контенту */
+}
+
+.item-galery {
+  border: 3px solid #222222;
+  width: 16%;
+  cursor: pointer;
+}
+
+.active-input {
+  cursor: pointer;
+}
+
+.item-galery:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+.navbar-collapse {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  padding-bottom: 20px;
+  }
+.bg-box img {
+  filter: brightness(70%);
+  }
+  .item-galery {
+    width: 32%;
+  }
+}
+
+@media (max-width: 680px) {
+  .item-galery {
+    border: 3px solid #222222;
+    width: 49%;
+  }
+  #navbarSupportedContent {
+    position: sticky;
+  }
+}
+
+@media (max-width: 400px) {
+  .item-galery {
+    border: 3px solid #222222;
+    width: 100%;
+  }
+}

@@ -7,6 +7,59 @@ function getYear() {
 
 getYear();
 
+jQuery(document).ready(function ($) {
+  // Customize Header if page is scrolled
+  (function checkScrolledHeader() {
+    var $header = $("#header");
+
+    $(window).scroll(checkScroll);
+
+    function checkScroll() {
+      var scrollPos = $(document).scrollTop();
+      if (scrollPos > 1) {
+        $header.addClass("scrolled");
+      } else {
+        $header.removeClass("scrolled");
+      }
+      document.querySelectorAll('.my-link').forEach(link => {
+        let id = link.getAttribute('href').replace('#', '');
+        let refElement = $('#' + id);
+        if (refElement.position().top <= scrollPos &&
+            refElement.position().top + refElement.height() > scrollPos) {
+              link.classList.remove('active');
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+      });
+    }
+    checkScroll();
+  })();
+
+  // Show/hide mobile menu
+  (function initMobHeaderMenu() {
+    var $header = $("#header"),
+        $btnMenu = $("#btn-menu"),
+        $mainMenu = $("#main-menu");
+
+    $btnMenu.on("click touchend", function (e) {
+      $header.toggleClass("active");
+      $(this).toggleClass("active");
+      $mainMenu.toggleClass("active");
+      return false;
+    });
+
+    // Hide menu on scroll for Landing Page
+    $(window).scroll(deactivateHeader);
+
+    function deactivateHeader() {
+      $header.removeClass("active");
+      $btnMenu.removeClass("active");
+      $mainMenu.removeClass("active");
+    }
+  })();
+});
+
 
 // isotope js
 $(window).on('load', function () {
@@ -37,7 +90,7 @@ $(document).ready(function() {
 /** google_map js **/
 function myMap() {
     var mapProp = {
-        center: new google.maps.LatLng(40.712775, -74.005973),
+        center: new google.maps.LatLng(58.7984, 17.8081),
         zoom: 18,
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -67,4 +120,18 @@ $(".client_owl-carousel").owlCarousel({
             items: 2
         }
     }
+});
+
+document.querySelectorAll('.my-link').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    let destination = document.querySelector(this.getAttribute('href'));
+    destination.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.my-link').forEach(link => {
+      link.classList.remove('active');
+      if(this == link){
+        link.classList.add('active');
+      }
+    });
+  });
 });

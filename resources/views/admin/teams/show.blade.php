@@ -2,34 +2,41 @@
 
 @section('content')
 
-@include('admin.navbar', ['create' => false])
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
 @endif
+<div class="row">
+ <div class="col-12">
+   <div class="card">
 <table class="table">
   <thead>
-    <tr>
       <th scope="row">
         <a href="{{ route('team.index') }}">
-          <button type="button" class="btn btn-light">Вся команда</button>
+          <button type="button" class="btn btn-secondary">Всі клієнти</button>
         </a>
       </th>
       <td>
         <a href="{{ route('team.edit', ['team' => $model]) }}">
           <button type="button" class="btn btn-secondary">
-            Редагувати</button></a></td>
+            <i class="fas fa-edit"></i></button></a></td>
             <td>
-              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                Видалити
+              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-default">
+                <i class="fas fa-trash-alt"></i>
               </button>
       </td>
     </tr>
+    <tr>
+      <th colspan="2">
+        Клієнт
+      </th>
+    </tr>
+    <tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row"></th>
+      <th scope="row">Фото</th>
       <td colspan="2">
         @if($model->avatar != NULL && $model->avatar != '')
         <img src="{{ asset('storage/source/'. $model->avatar) }}" class="img-thumbnail" width="250px;">
@@ -53,29 +60,31 @@
       <td colspan="2">{{ $model->description }}</td>
   </tbody>
 </table>
+</div></div></div>
 
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Видалити {{ $model->fullname }}</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-Ви дійсно хочете видалити особу?
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Відмінити</button>
-<form action="{{ route('team.destroy', $model->id) }}" method="POST" id="detail-{{ $model->id }}">
-  @csrf
-  @method('DELETE')
-  <button type="submit" class="btn btn-primary">Видалити</button>
-</form>
 
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Видалити {{ $model->name }}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <form action="{{ route('product.destroy', $model->id) }}" method="POST" id="detail-{{ $model->id }}">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-primary">Видалити</button>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
-</div>
-</div>
-</div>
+<!-- /.modal -->
 
 @endsection

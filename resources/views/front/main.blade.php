@@ -2,6 +2,11 @@
 
 @section('content')
 
+@include('front.slider', [
+     'slider_text' => $slider_text,
+     'slider_button' => $slider_button
+     ])
+
 @include('front.discount', ['discounts' => $discounts])
 
 <!-- food section -->
@@ -15,93 +20,30 @@
 
 <!-- about section -->
 
-<section class="about_section layout_padding" id="about_section">
-  <div class="container  ">
-
-    <div class="row">
-      <div class="col-md-6 ">
-        <div class="img-box">
-          <img src="images/about-img.png" alt="">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="detail-box">
-          <div class="heading_container">
-            <h2>
-              We Are Feane
-            </h2>
-          </div>
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-            in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-            the middle of text. All
-          </p>
-          <a href="">
-            Read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+@include('front.about', [
+   'about_foto' => $about_foto,
+   'about_content' => $about_content
+])
 
 <!-- end about section -->
+
+@include('front.galery', [
+   'galery' => $galery,
+])
 
 <!-- book section -->
 <section class="book_section layout_padding" id="book_section">
   <div class="container">
-    <div class="heading_container">
+    <!-- <div class="heading_container">
       <h2>
-        Book A Table
+        Наші контакти
       </h2>
-    </div>
+    </div> -->
     <div class="row">
-      <div class="col-md-6">
-        <div class="form_container">
-          <form action="">
-            <div>
-              <input type="text" class="form-control" placeholder="Your Name" />
-            </div>
-            <div>
-              <input type="text" class="form-control" placeholder="Phone Number" />
-            </div>
-            <div>
-              <input type="email" class="form-control" placeholder="Your Email" />
-            </div>
-            <div>
-              <select class="form-control nice-select wide">
-                <option value="" disabled selected>
-                  How many persons?
-                </option>
-                <option value="">
-                  2
-                </option>
-                <option value="">
-                  3
-                </option>
-                <option value="">
-                  4
-                </option>
-                <option value="">
-                  5
-                </option>
-              </select>
-            </div>
-            <div>
-              <input type="date" class="form-control">
-            </div>
-            <div class="btn_box">
-              <button>
-                Book Now
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      @include('front.order_form')
       <div class="col-md-6">
         <div class="map_container ">
-          <div id="googleMap"></div>
+          {!! $coordinate->description !!}
         </div>
       </div>
     </div>

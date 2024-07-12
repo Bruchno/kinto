@@ -1,13 +1,13 @@
 <section class="food_section layout_padding-bottom" id="food_section">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2>
-        Our Menu
+      <h2  style="font-family: Garamond, serif;">
+        Наше меню
       </h2>
     </div>
 
     <ul class="filters_menu">
-      <li class="active" data-filter="*">All</li>
+      <li class="active" data-filter="*">Все</li>
       @foreach($arr_category as $id => $title)
       <li data-filter=".cat{{ $id }}">{{ $title }}</li>
       @endforeach
@@ -20,7 +20,7 @@
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="{{ asset('storage/source/'. $product->preview) }}" alt="">
+                <img src="{{ asset('storage/source/'. $product->preview) }}" alt="" style="min-height:145px">
               </div>
               <div class="detail-box">
                 <h5>
@@ -31,9 +31,9 @@
                 </p>
                 <div class="options">
                   <h6>
-                    ${{ $product->price }}
+                    {{ $product->price }} &#8372;
                   </h6>
-                  <a href="">
+                  <a href="" data-toggle="modal" data-target="#exampleModal">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
                         <g>
@@ -96,9 +96,10 @@
 
     </div>
     <div class="btn-box">
-      <a href="">
-        View More
+      <a href="" data-toggle="modal" data-target="#exampleModal">
+        БІЛЬШЕ СТРАВ
       </a>
     </div>
   </div>
+</div>
 </section>

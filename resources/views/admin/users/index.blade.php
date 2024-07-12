@@ -2,7 +2,6 @@
 
 @section('content')
 
-@include('admin.navbar', ['create' => false])
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -19,7 +18,16 @@
    {{ session('status') }}
 </div>
 @endif
-<table class="table table-striped">
+
+<div class="row">
+ <div class="col-12">
+   <div class="card">
+     <div class="card-header">
+       <h3 class="card-title">Користувачі</h3>
+     </div>
+     <!-- /.card-header -->
+     <div class="card-body table-responsive">
+<table class="table table-hover text-nowrap">
 <thead>
  <tr>
    <th scope="col">#</th>
@@ -49,7 +57,7 @@
      <form action="{{ route('admin.destroy', $model->id) }}" method="POST">
        @csrf
        <!-- @method('DELETE') -->
-       <button type="submit" class="btn btn-dark">Видалити</button>
+       <button type="submit" class="btn btn-dark"><i class="fas fa-trash-alt"></i></button>
      </form>
    </td>
  </tr>
@@ -58,5 +66,6 @@
 </tbody>
 
 </table>
+</div></div></div></div>
 
 @endsection

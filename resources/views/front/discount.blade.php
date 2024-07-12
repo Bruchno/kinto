@@ -2,23 +2,28 @@
 <section class="offer_section layout_padding-bottom">
   <div class="offer_container">
     <div class="container ">
+      <div class="heading_container heading_center">
+        <h2 style="font-family: Garamond, serif;">
+          Гарячі пропозиції
+        </h2>
+      </div>
       <div class="row">
 
         @foreach($discounts as $product_with_discount)
         <div class="col-md-6  ">
           <div class="box ">
-            <div class="img-box">
-              <img src="{{ asset('storage/source/'. $product_with_discount->preview) }}" alt="">
+            <div class="img-box outer">
+              <img src="{{ asset('storage/source/'. $product_with_discount->preview) }}" alt="" class="inner">
             </div>
             <div class="detail-box">
               <h5>
                 {{ $product_with_discount->name }}
               </h5>
-              <h6>
-                <span>{{ $product_with_discount->discount }}%</span> Off
+              <h6 style="font-family: Garamond, serif;">
+                <span> - {{ $product_with_discount->discount }} %</span>
               </h6>
-              <a href="">
-                Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+              <a href="" data-toggle="modal" data-target="#exampleModal">
+                Замовити <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
                       <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248

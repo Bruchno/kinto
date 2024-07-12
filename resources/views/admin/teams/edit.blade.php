@@ -15,63 +15,77 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
-<h2>Редагування {{ $model->fullname }}</h2>
+
 @if($errors->any())
 <div class="alert alert-danger" role="alert">
   {!! $errors->first() !!}
 </div>
 @endif
-<div class="card-body col-md-12">
-<form action="{{ route('team.update', $model) }}" method="post" enctype="multipart/form-data">
-     @csrf
-     @method('PUT')
-    <div class="row mb-3">
-      <div class="form-group field-details-arr_name">
-        <label class="col-auto" for="details-arr_name-uk">Повне ім'я</label>
-        <input type="text" class="form-control" name="fullname" value="{{ $model->fullname }}" required>
+<br>
+<br>
+    <div class="card card-info">
+    <div class="card-header col-sm-6">
+      <h3 class="card-title" style="font-size:2rem">Редагування відгуку {{ $model->fullname }}</h3>
     </div>
-      <div class="form-group field-details-arr_name">
-        <label class="col-auto" for="details-arr_price">Посада</label>
-        <input type="text" class="form-control" name="position" value="{{ $model->position }}" required>
-    </div>
-</div>
-    <div class="">
-      <label class="col-auto" for="details-arr_name-uk">Короткий опис</label>
-    <div class="row mb-3 p-3">
-      <textarea name="description" rows="5" class="form-control col-md-10">
-        {{ $model->description }}
-      </textarea>
-    </div>
-    </div>
-
-  </div>
-
-    <div class="row mb-3">
-    <div class="col-md-6">
-      <p>Фото</p>
-    <div class="col-md-12">
-      <div class="form-group field-input_preview">
-        <label class="control-label" for="input_preview"></label>
-        <input type="file" id="input_preview" name="avatar">
+    <div class="card-body">
+      <form action="{{ route('team.update', $model) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Повне ім'я</label>
+              <input type="text" class="form-control"
+                     name="fullname" value="{{ $model->fullname }}" required>
+            </div>
+          </div>
         </div>
-          <img src="/assets/add-a-photo.jpg" width="250px;" id="img_add_btn" onclick="click_change_file();">
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div id="output">
-        @if($model->avatar != NULL && $model->avatar != '')
-        <img src="{{ asset('storage/source/'. $model->avatar) }}" class="img-thumbnail" width="250px;">
-        @endif
+          <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Про що відгук</label>
+              <input type="text" class="form-control" name="position"
+                     value="{{ $model->position }}" required>
+            </div>
+          </div>
         </div>
-    </div>
-    <br><br>
-    </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- textarea -->
+            <div class="form-group">
+              <label>Відгук</label>
+              <textarea name="description" class="form-control" rows="3" >
+                {{ $model->description }}
+              </textarea>
+            </div>
+          </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Зберегти</button>
+        </div>
+        <div class="row mb-3">
+        <div class="col-md-6">
+          <p>Фото</p>
+        <div class="col-md-12">
+          <div class="form-group field-input_preview">
+            <label class="control-label" for="input_preview"></label>
+            <input type="file" id="input_preview" name="avatar">
+            </div>
+            <img src="/assets/add-a-photo.jpg" width="250px;" id="img_add_btn" onclick="click_change_file();">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="output">
+            @if($model->avatar != NULL && $model->avatar != '')
+            <img src="{{ asset('storage/source/'. $model->avatar) }}" class="img-thumbnail" width="250px;">
+            @endif
+        </div>
+        </div>
+        <br><br>
       </div>
-
-    </form>
+      <div class="form-group">
+          <button type="submit" class="btn btn-light">Save</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <script>

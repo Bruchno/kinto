@@ -138,7 +138,7 @@ class ProductController extends Controller
             }
             $model->preview = $base;
         }
-        $model->discount = $request['discount'];
+        $model->discount = $request['discount'] ? $request['discount'] : 0;
         $model->save();
         return redirect()->route('product.show', $model->id)->with('status', 'Збережено!');
       } else {
